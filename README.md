@@ -78,19 +78,11 @@ The application uses a bottom tab navigation system with icons that allows users
 ----------
 
 ## Screenshots
-![Home Screen] (screenshots/Home.jpg)
-![Add transaction] (screenshots/add_transaction.jpg)
-![Statiscs screen] (screenshots/statistics.jpg)
-![Settings Screen] (screenshots/settings.jpg)
-![transactions Screen] Spend_Sample/screenshots/transactions.jpg
-
-
-
-
-
-
-
-
+![Home Screen] (Spend_Sample\screenshots\Home.jpg)
+![Add transaction] (Spend_Sample\screenshots\add_transaction.jpg)
+![Statiscs screen] (Spend_Sample\screenshots\statistics.jpg)
+![Settings Screen] (Spend_Sample\screenshots\settings.jpg)
+![transactions Screen] (Spend_Sample\screenshots\transactions.jpg)
 
 
 ----------
