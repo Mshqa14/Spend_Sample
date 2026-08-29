@@ -78,7 +78,7 @@ The application uses a bottom tab navigation system with icons that allows users
 ----------
 
 ## Screenshots
-![Home Screen](assets/screenshotsHome.jpg)
+![Home Screen](assets/screenshots/Home.jpg)
 ![Add transaction](assets/screenshots/add_transaction.jpg)
 ![Statiscs screen](assets/screenshots/statistics.jpg)
 ![Settings Screen](assets/screenshots/settings.jpg)
