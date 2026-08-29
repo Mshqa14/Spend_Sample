@@ -1,4 +1,6 @@
 # Spend! - spending tracker
+## By: Fathmath Mishqa Niyaz | UWE ID: 24019737
+
 
 ## Proeject Description
 Spend! is a mobile spending tracker application developed using React Native and Expo. The app allows users to record their income and expenses, view their transaction history, and monitor their spending statistics.
