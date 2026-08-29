@@ -101,6 +101,7 @@ The application uses a bottom tab navigation system with icons that allows users
 
 ----------
 
+
 ### Future Improvements
 
 The application could use features such as:
