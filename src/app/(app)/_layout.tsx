@@ -1,13 +1,13 @@
 /* eslint-disable react/no-unstable-nested-components */
-import { Link, Redirect, Tabs } from 'expo-router';
-import React from 'react';
 
-import { Pressable, Text } from '@/components/ui';
+import React from 'react';
+import { Redirect, Tabs } from 'expo-router';
+
 import {
-  Feed as FeedIcon,
+  Home as HomeIcon,
   Settings as SettingsIcon,
-  Style as StyleIcon,
-  Home as ProfileIcon,
+  Style as StatisticsIcon,
+  Feed as TransactionsIcon,
 } from '@/components/ui/icons';
 import { useAuth } from '@/app/providers/auth/auth-provider';
 
@@ -21,55 +21,83 @@ export default function TabLayout() {
   if (status === 'signOut') {
     return <Redirect href="/(auth)/login" />;
   }
-  
+
+
+
+  //------------------style stuff
   return (
-    <Tabs>
+    <Tabs
+      screenOptions={{
+        headerTitleAlign: 'center',
+        tabBarActiveTintColor: '#5f9ea0',
+        tabBarInactiveTintColor: '#9ca3af',
+      }}
+    >
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Feed',
-          tabBarIcon: ({ color }) => <FeedIcon color={color} />,
-          headerRight: () => <CreateNewPostLink />,
-          tabBarButtonTestID: 'feed-tab',
+          title: 'Home',
+          headerTitle: 'Spend',
+          tabBarIcon: ({ color }) => (
+            <HomeIcon color={color} />
+          ),
         }}
       />
+
       <Tabs.Screen
-        name="style"
+        name="transactions"
         options={{
-          title: 'Style',
-          headerShown: false,
-          tabBarIcon: ({ color }) => <StyleIcon color={color} />,
-          tabBarButtonTestID: 'style-tab',
+          title: 'Transactions',
+          headerTitle: 'Transactions',
+          tabBarIcon: ({ color }) => (
+            <TransactionsIcon color={color} />
+          ),
         }}
       />
+
       <Tabs.Screen
-        name="profile"
+        name="statistics"
         options={{
-          title: 'Profile',
-          headerShown: false,
-          tabBarIcon: ({ color }) => <ProfileIcon color={color} />,
-          tabBarButtonTestID: 'profile-tab',
+          title: 'Statistics',
+          headerTitle: 'Statistics',
+          tabBarIcon: ({ color }) => (
+            <StatisticsIcon color={color} />
+          ),
         }}
       />
+
       <Tabs.Screen
         name="settings"
         options={{
           title: 'Settings',
           headerShown: false,
-          tabBarIcon: ({ color }) => <SettingsIcon color={color} />,
-          tabBarButtonTestID: 'settings-tab',
+          tabBarIcon: ({ color }) => (
+            <SettingsIcon color={color} />
+          ),
+        }}
+      />
+
+      <Tabs.Screen
+        name="add-transaction"
+        options={{
+          href: null,
+          headerShown: false,
+        }}
+      />
+
+      <Tabs.Screen
+        name="profile"
+        options={{
+          href: null,
+        }}
+      />
+
+      <Tabs.Screen
+        name="style"
+        options={{
+          href: null,
         }}
       />
     </Tabs>
   );
 }
-
-const CreateNewPostLink = () => {
-  return (
-    <Link href={"/feed/add-post" as any} asChild>
-      <Pressable>
-        <Text className="px-3 text-primary-300">Create</Text>
-      </Pressable>
-    </Link>
-  );
-};

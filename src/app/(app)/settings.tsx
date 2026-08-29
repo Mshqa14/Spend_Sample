@@ -1,87 +1,222 @@
 import React from 'react';
-// import { Env } from '@env';
-import { useColorScheme } from 'nativewind';
-import { observer } from 'mobx-react-lite';
-
-import { Item } from '@/components/settings/item';
-import { ItemsContainer } from '@/components/settings/items-container';
-import { LanguageItem } from '@/components/settings/language-item';
-import { ThemeItem } from '@/components/settings/theme-item';
 import {
-  colors,
-  FocusAwareStatusBar,
+  Alert,
+  Pressable,
   ScrollView,
   Text,
   View,
-} from '@/components/ui';
-import { Github, Rate, Share, Support, Website } from '@/components/ui/icons';
-import { translate } from '@/lib';
-import { useAuth } from '@/app/providers/auth/auth-provider';
+} from 'react-native';
 
-export default observer(function Settings() {
-  const { signOut } = useAuth();
-  const { colorScheme } = useColorScheme();
-  const iconColor =
-    colorScheme === 'dark' ? colors.neutral[400] : colors.neutral[500];
-    
+import { FocusAwareStatusBar } from '@/components/ui';
+
+export default function Settings() {
+  const showComingSoon = () => {
+    Alert.alert(
+      'Coming soon',
+      'This option can be added in a future version.'
+    );
+  };
+
   return (
-    <>
+    <View style={{ flex: 1, backgroundColor: '#FFFFFF' }}>
       <FocusAwareStatusBar />
-      <ScrollView>
-        <View className="flex-1 px-4 pt-16 ">
-          <Text className="text-xl font-bold">
-            {translate('settings.title')}
-          </Text>
-          <ItemsContainer title="settings.generale">
-            <LanguageItem />
-            <ThemeItem />
-          </ItemsContainer>
 
-          <ItemsContainer title="settings.support_us">
-            <Item
-              text="settings.share"
-              icon={<Share color={iconColor} />}
-              onPress={() => {}}
-            />
-            <Item
-              text="settings.rate"
-              icon={<Rate color={iconColor} />}
-              onPress={() => {}}
-            />
-            <Item
-              text="settings.support"
-              icon={<Support color={iconColor} />}
-              onPress={() => {}}
-            />
-          </ItemsContainer>
+      <ScrollView
+        contentContainerStyle={{
+          paddingHorizontal: 20,
+          paddingTop: 60,
+          paddingBottom: 40,
+        }}
+      >
+        <Text
+          style={{
+            fontSize: 30,
+            fontWeight: '700',
+            color: '#000000',
+          }}
+        >
+          Settings
+        </Text>
 
-          <ItemsContainer title="settings.links">
-            <Item text="settings.privacy" onPress={() => {}} />
-            <Item text="settings.terms" onPress={() => {}} />
-            <Item
-              text="settings.github"
-              icon={<Github color={iconColor} />}
-              onPress={() => {}}
-            />
-            <Item
-              text="settings.website"
-              icon={<Website color={iconColor} />}
-              onPress={() => {}}
-            />
-          </ItemsContainer>
+        <Text
+          style={{
+            marginTop: 8,
+            marginBottom: 30,
+            color: '#6B7280',
+            fontSize: 16,
+          }}
+        >
+          Manage app preferences
+        </Text>
 
-          {/* <ItemsContainer title="settings.about">
-            <Item text="settings.app_name" value={Env.NAME} />
-            <Item text="settings.version" value={Env.VERSION} />
-          </ItemsContainer> */}
+        {/* General */}
+        <Text
+          style={{
+            fontSize: 18,
+            fontWeight: '700',
+            marginBottom: 12,
+          }}
+        >
+          General
+        </Text>
 
-          <View className="my-8">
-            <ItemsContainer>
-              <Item text="settings.logout" onPress={() => signOut()} />
-            </ItemsContainer>
+        <View
+          style={{
+            backgroundColor: '#F9FAFB',
+            borderRadius: 16,
+            overflow: 'hidden',
+          }}
+        >
+          <Pressable
+            onPress={showComingSoon}
+            style={{
+              padding: 18,
+              borderBottomWidth: 1,
+              borderBottomColor: '#E5E7EB',
+            }}
+          >
+            <Text
+              style={{
+                fontSize: 16,
+                fontWeight: '600',
+              }}
+            >
+              Currency
+            </Text>
+
+            <Text
+              style={{
+                marginTop: 4,
+                color: '#6B7280',
+              }}
+            >
+              Maldivian Rufiyaa (MVR)
+            </Text>
+          </Pressable>
+
+          <Pressable
+            onPress={showComingSoon}
+            style={{
+              padding: 18,
+            }}
+          >
+            <Text
+              style={{
+                fontSize: 16,
+                fontWeight: '600',
+              }}
+            >
+              Appearance
+            </Text>
+
+            <Text
+              style={{
+                marginTop: 4,
+                color: '#6B7280',
+              }}
+            >
+              Light Mode
+            </Text>
+          </Pressable>
+        </View>
+
+        {/* About */}
+        <Text
+          style={{
+            fontSize: 18,
+            fontWeight: '700',
+            marginBottom: 12,
+            marginTop: 30,
+          }}
+        >
+          About
+        </Text>
+
+        <View
+          style={{
+            backgroundColor: '#F9FAFB',
+            borderRadius: 16,
+            overflow: 'hidden',
+          }}
+        >
+          <View
+            style={{
+              padding: 18,
+              borderBottomWidth: 1,
+              borderBottomColor: '#E5E7EB',
+            }}
+          >
+            <Text
+              style={{
+                fontSize: 16,
+                fontWeight: '600',
+              }}
+            >
+              Spend!
+            </Text>
+
+            <Text
+              style={{
+                marginTop: 4,
+                color: '#6B7280',
+              }}
+            >
+              A simple personal spending tracker
+            </Text>
+          </View>
+
+          <View
+            style={{
+              padding: 18,
+            }}
+          >
+            <Text
+              style={{
+                fontSize: 16,
+                fontWeight: '600',
+              }}
+            >
+              Version
+            </Text>
+
+            <Text
+              style={{
+                marginTop: 4,
+                color: '#6B7280',
+              }}
+            >
+              1.0.0
+            </Text>
           </View>
         </View>
+
+        {/* Future Improvements */}
+        <Text
+          style={{
+            fontSize: 18,
+            fontWeight: '700',
+            marginBottom: 12,
+            marginTop: 30,
+          }}
+        >
+          Future Improvements
+        </Text>
+
+        <View
+          style={{
+            backgroundColor: '#F9FAFB',
+            borderRadius: 16,
+            padding: 18,
+          }}
+        >
+          <Text style={{ color: '#4B5563', lineHeight: 24 }}>
+            • Custom spending categories{'\n'}
+            • Monthly budgets{'\n'}
+            • Dark mode{'\n'}
+            • Detailed spending statistics
+          </Text>
+        </View>
       </ScrollView>
-    </>
+    </View>
   );
-});
+}

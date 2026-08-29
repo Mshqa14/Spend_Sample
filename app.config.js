@@ -41,16 +41,20 @@ export default {
       supportsTablet: true
     },
     android: {
-      adaptiveIcon: {
-        foregroundImage: "./assets/adaptive-icon.png",
-        backgroundColor: "#ffffff"
-      }
-    },
+  package: "com.mshqa.expogovillasample",
+  adaptiveIcon: {
+    foregroundImage: "./assets/adaptive-icon.png",
+    backgroundColor: "#ffffff"
+  }
+},
     extra: {
-      API_URL: process.env.API_URL,
-      SECRET_KEY: process.env.SECRET_KEY,
-      VAR_NUMBER: process.env.VAR_NUMBER,
-      VAR_BOOL: process.env.VAR_BOOL,
-    }
+  API_URL: process.env.API_URL,
+  SECRET_KEY: process.env.SECRET_KEY,
+  VAR_NUMBER: process.env.VAR_NUMBER,
+  VAR_BOOL: process.env.VAR_BOOL,
+  eas: {
+    projectId: "ae7f345d-01db-4a14-b197-d486f966e3ef"
+  }
+}
   }
 };

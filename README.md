@@ -1,243 +1,112 @@
-# 📱 Expo Go Villa Sample - Mobile Development Learning Project
+# Spend! - spending tracker
 
-Welcome to your first React Native mobile app! This project is designed to help you learn mobile development using Expo Go - no simulators or complex setup required, just your phone and some basic tools.
+## Proeject Description
+Spend! is a mobile spending tracker application developed using React Native and Expo. The app allows users to record their income and expenses, view their transaction history, and monitor their spending statistics.
+The purpose of the application is to provide a simple way for users to keep track of their personal finances. Transaction data is stored locally on the device, allowing the user's information to remain available even after the application is closed and reopened.
 
-## 🎯 What You'll Learn
+-----------
 
-- React Native fundamentals
-- Mobile UI components and styling with NativeWind (Tailwind CSS)
-- Navigation between screens
-- Form handling and validation
-- State management
-- Local storage
-- Internationalization (i18n)
-- Authentication flows
+## Installation & Run Instructions
 
-## 📋 Prerequisites
+### Requirements
+Before running the project, make sure the following are installed:
+- Node.js
+- npm
+- Expo Go on mobile device
+- Git
 
-Before you start, make sure you have:
-- A smartphone (iOS or Android)
-- A computer with internet connection
-- Both devices connected to the **same WiFi network**
-
-## 🛠️ Installation Guide
-
-### Step 1: Install Node.js
-1. Go to [nodejs.org](https://nodejs.org/)
-2. Download and install the **LTS version** (recommended)
-3. Verify installation by opening terminal/command prompt and typing:
-   ```bash
-   node --version
-   npm --version
-   ```
-
-### Step 2: Install Yarn (Package Manager)
+### Step 1 - Clone the Repository
 ```bash
-npm install -g yarn
+git clone https://github.com/Mshqa14/Spend_Sample.git
 ```
-Verify installation:
+
+### Step 2 - Open Project Folder
 ```bash
-yarn --version
+cd Spend_Sample
 ```
 
-### Step 3: Install Expo CLI
+### Step 3 - Install Dependencies
 ```bash
-npm install -g @expo/cli
+npm install
 ```
 
-### Step 4: Install Expo Go App on Your Phone
-
-#### For iOS:
-- Open App Store
-- Search for "Expo Go"
-- Install the app
-
-#### For Android:
-- Open Google Play Store
-- Search for "Expo Go"
-- Install the app
-
-## 🚀 Getting Started
-
-### 1. Clone/Download This Project
+### Step 4 - Start Application
 ```bash
-# Clone the repository
-git clone https://github.com/Yasir5247/RN-ExpoGo-Villa-Sample.git
-cd RN-ExpoGo-Villa-Sample
-
-# Or download the ZIP file from GitHub and extract it
+npx expo start
 ```
+### Step 5 - Run on Mobile Device
+Open Expo Go on an Android or iOS device and scan the QR code displayed after starting the project.
+The computer and mobile device should be connected to the same Wi-Fi network when using the local connection.
 
-**Alternative: Download ZIP**
-1. Go to [https://github.com/Yasir5247/RN-ExpoGo-Villa-Sample](https://github.com/Yasir5247/RN-ExpoGo-Villa-Sample)
-2. Click the green "Code" button
-3. Select "Download ZIP"
-4. Extract the downloaded file
-
-### 2. Install Dependencies
+If there are problems with the cache, the project can be restarted using:
 ```bash
-yarn install
+npx expo start -c
 ```
 
-### 3. Start the Development Server
-```bash
-yarn start
-```
+----------
 
-You should see something like this:
-```
-Starting Metro Bundler
-▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
-█ ▄▄▄▄▄ █▄▄▄ ▀█▄█▄█ ▄▄▄▄▄ █
-█ █   █ ██▄▀ █ ▀▄▄█ █   █ █
-█ █▄▄▄█ ██▀▄ ▄███▀█ █▄▄▄█ █
-▄▄▄▄▄▄▄█ ▀▄█ ▀▄█▄█▄▄▄▄▄▄▄█
-...
+## Features 
+### Home
+The Home screen provides an overview of the users financial activity, including their current balance, total income, total expenses, and recent transactions.
 
-› Metro waiting on exp://192.168.x.x:8081
-› Scan the QR code above with Expo Go (Android) or the Camera app (iOS)
-```
+### Add Transactions
+Users can add new income or expense transactions. Each transaction contains:
+- Transaction name
+- Amount
+- Category
+- Transaction type (Income or Expense)
+- Date
 
-### 4. Open the App on Your Phone
+### History
+The Transactions screen displays all saved transactions. Income and expenses are differentiated to make the transaction history easier to understand.
 
-#### For iOS:
-1. Open the **Camera** app
-2. Point it at the QR code on your computer screen
-3. Tap the notification that appears
-4. The app will open in Expo Go
+### Statistics
+The Statistics screen provides a summary of the user's financial activity, including total income, total spending, savings, and spending by category.
 
-#### For Android:
-1. Open the **Expo Go** app
-2. Tap "Scan QR Code"
-3. Point your camera at the QR code on your computer screen
-4. The app will load automatically
+### Local Data Persistence
+Transactions are stored locally using AsyncStorage with MobX persistence. This means saved transactions remain available when the application is closed and reopened.
 
-## 🔧 Development Commands
+### Navigation
+The application uses a bottom tab navigation system with icons that allows users to move between:
+- Home
+- Transactions
+- Statistics
+- Setting
 
-```bash
-# Start the development server
-yarn start
+----------
 
-# Start with iOS simulator (if you have Xcode installed)
-yarn ios
+## Screenshots
 
-# Start with Android emulator (if you have Android Studio installed)
-yarn android
 
-# Start web version
-yarn web
 
-# Run linting
-yarn lint
 
-# Format code
-yarn format
-```
 
-## 📱 Features in This App
 
-### 🎨 UI Components
-- **Buttons**: Various styles and states
-- **Forms**: Login form with validation
-- **Cards**: Display content beautifully
-- **Navigation**: Tab navigation and stack navigation
-- **Modals**: Bottom sheets and overlays
 
-### 🎯 Functionality
-- **Authentication**: Login/logout flow
-- **Storage**: Persistent data storage
-- **Theming**: Light/dark mode support
-- **Internationalization**: Multi-language support
-- **Form Validation**: Using Zod and React Hook Form
 
-### 🛠️ Technologies Used
-- **React Native**: Mobile app framework
-- **Expo**: Development platform
-- **NativeWind**: Tailwind CSS for React Native
-- **Expo Router**: File-based navigation
-- **React Hook Form**: Form handling
-- **Zod**: Schema validation
-- **AsyncStorage**: Local data storage
 
-## 🐛 Troubleshooting
 
-### App Won't Load?
-1. **Check WiFi**: Ensure both devices are on the same network
-2. **Restart Metro**: Press `r` in the terminal to reload
-3. **Clear Cache**: Press `Shift + r` for a full reload
-4. **Restart Expo Go**: Close and reopen the Expo Go app
+----------
 
-### QR Code Not Working?
-1. **Manual Connection**: In Expo Go, tap "Enter URL manually" and type the URL shown in terminal
-2. **Network Issues**: Try connecting to a different WiFi network
-3. **Firewall**: Check if your computer's firewall is blocking the connection
+## Technologies Used
+- React Native
+- Expo
+- Expo Router
+- TypeScript
+- MobX
+- mobx-persist-store
+- AsyncStorage
+- NativeWind
+- React Navigation
+- GitHub
 
-### Development Server Issues?
-```bash
-# Clear Expo cache
-expo start --clear
+----------
 
-# Reset Metro cache
-yarn start --reset-cache
-```
+### Future Improvements
 
-## 📚 Learning Path
-
-### Beginner Level
-1. **Explore the UI**: Navigate through different screens
-2. **Modify Text**: Change some text content and see live updates
-3. **Styling**: Experiment with NativeWind classes
-4. **Components**: Look at how components are structured
-
-### Intermediate Level
-1. **Add New Screens**: Create additional pages
-2. **Form Handling**: Build new forms with validation
-3. **State Management**: Add new features with local state
-4. **Storage**: Implement data persistence
-
-### Advanced Level
-1. **API Integration**: Connect to external services
-2. **Custom Components**: Build reusable UI components
-3. **Performance**: Optimize app performance
-4. **Testing**: Add unit and integration tests
-
-## 📖 File Structure
-
-```
-src/
-├── app/                    # App screens (file-based routing)
-│   ├── (app)/             # Protected app screens
-│   ├── login.tsx          # Login screen
-│   ├── onboarding.tsx     # Onboarding screen
-│   └── _layout.tsx        # Root layout
-├── components/            # Reusable UI components
-│   ├── ui/               # Base UI components
-│   └── ...               # Feature components
-├── lib/                  # Utilities and configurations
-│   ├── auth/             # Authentication logic
-│   ├── hooks/            # Custom React hooks
-│   ├── i18n/             # Internationalization
-│   └── storage.tsx       # Local storage utilities
-└── translations/         # Language files
-```
-
-## 🤝 Getting Help
-
-1. **Read the Code**: Comments explain what each part does
-2. **Expo Documentation**: [docs.expo.dev](https://docs.expo.dev)
-3. **React Native Docs**: [reactnative.dev](https://reactnative.dev)
-4. **Ask Questions**: Don't hesitate to ask your instructor
-
-## 🎉 Next Steps
-
-Once you're comfortable with this project:
-1. Try building your own screens
-2. Add new features
-3. Experiment with different UI components
-4. Build your own app from scratch
-
----
-
-**Happy Coding! 🚀**
-
-*Remember: The best way to learn is by doing. Don't be afraid to break things - that's how you learn!*
+The application could use features such as:
+- Editing existing transactions
+- Deleting transactions through the user interface
+- Searching and filtering transactions
+- Monthly spending budgets.
+- Additional accessibility and customization options.

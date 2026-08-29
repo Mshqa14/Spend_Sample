@@ -17,7 +17,7 @@ export class AuthStore {
   constructor() {
     makeAutoObservable(this);
     
-    // Configure automatic persistence
+    //--------------automatic persistence
     makePersistable(this, {
       name: 'AuthStore',
       properties: ['token', 'status', 'isFirstTime'],
@@ -36,10 +36,10 @@ export class AuthStore {
   }
 
   async signOut() {
-    // Clear the persisted data from AsyncStorage
+    //--------------Clearing persisted data from Atorage
     await AsyncStorage.removeItem('AuthStore');
     
-    // Reset the store state
+    //----------reset the store state
     this.token = null;
     this.status = 'signOut';
     this.isFirstTime = true;

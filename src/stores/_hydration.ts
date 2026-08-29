@@ -1,22 +1,44 @@
+import { Platform } from 'react-native';
 import { configurePersistable } from 'mobx-persist-store';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-// Configure persistence to use AsyncStorage
+const webStorage = {
+  setItem: async (key: string, value: string) => {
+    if (typeof window !== 'undefined') {
+      window.localStorage.setItem(key, value);
+    }
+  },
+
+  getItem: async (key: string) => {
+    if (typeof window !== 'undefined') {
+      return window.localStorage.getItem(key);
+    }
+
+    return null;
+  },
+
+  removeItem: async (key: string) => {
+    if (typeof window !== 'undefined') {
+      window.localStorage.removeItem(key);
+    }
+  },
+};
+
+const nativeStorage = {
+  setItem: async (key: string, value: string) => {
+    await AsyncStorage.setItem(key, value);
+  },
+
+  getItem: async (key: string) => {
+    return await AsyncStorage.getItem(key);
+  },
+
+  removeItem: async (key: string) => {
+    await AsyncStorage.removeItem(key);
+  },
+};
+
 configurePersistable({
   debugMode: __DEV__,
-  storage: {
-    setItem: async (key, value) => {
-      await AsyncStorage.setItem(key, value);
-      return Promise.resolve();
-    },
-    getItem: async key => {
-      const value = await AsyncStorage.getItem(key);
-      return Promise.resolve(value);
-    },
-    removeItem: async key => {
-      await AsyncStorage.removeItem(key);
-      return Promise.resolve();
-    },
-  },
+  storage: Platform.OS === 'web' ? webStorage : nativeStorage,
 });
-
